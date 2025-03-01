@@ -14,8 +14,6 @@ class Solution(object):
         
         while temp and temp.next:
             nextNode = temp.next
-            print("temp value", temp.val)
-            print("nextNode value", nextNode.val)
             while nextNode and nextNode.val == temp.val:
                 nextNode = nextNode.next
             temp.next = nextNode
