@@ -10,29 +10,29 @@ class Solution(object):
         :type list2: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
-        
-        if not list1:
-            return list2
-        
-        if not list2:
-            return list1
 
-        prev = ListNode(0, None)
-        ans = prev
+        temp1 = list1
+        temp2 = list2
 
-        while list1 and list2:
-            if list1.val <= list2.val:
-                prev.next = list1
-                prev = prev.next
-                list1 = list1.next
-            if list1 and list2.val < list1.val:
-                prev.next = list2
-                prev = prev.next
-                list2 = list2.next
+        curr = ListNode(0)
+        result = curr
 
-        if list1:
-            prev.next = list1
+        while temp1 and temp2:
+            if temp1.val <= temp2.val:
+                curr.next = temp1
+                temp1 = temp1.next
+            else:
+                curr.next = temp2
+                temp2 = temp2.next
+            curr = curr.next
+
+
+        if temp1:
+            curr.next = temp1
         else:
-            prev.next = list2
+            curr.next = temp2
 
-        return ans.next
+        return result.next
+
+
+        
