@@ -16,7 +16,7 @@ class Solution(object):
         
         queue = []
         result = []
-        currenLevelvals = []
+        currentLevelvals = []
 
         queue.append(root)
 
@@ -25,14 +25,14 @@ class Solution(object):
 
             for i in range(currentLevelSize):
                 node = queue.pop(0)
-                currenLevelvals.append(node.val)
+                currentLevelvals.append(node.val)
 
                 if node.left:
                     queue.append(node.left)
                 if node.right:
                     queue.append(node.right)
 
-            result.append(currenLevelvals)
-            currenLevelvals = []
+            result.append(currentLevelvals)
+            currentLevelvals = []
         
         return result
